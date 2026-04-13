@@ -5,11 +5,11 @@
 
 const LETTER_TEXT = `Hey Gauri,
 
-Happy birthday. I hope your day feels as soft and bright as you make ordinary moments feel.
+Happiest 19th birthday. It actually sucks that I am not there to celebrate with you and more importantly to witness whatever new ways you have found to be a complete klutz lately. Goa really set a high bar but I am sure you are managing.
 
-Thank you for your laugh, your patience, and the way you make the world a little kinder just by being in it.
+I have been missing you a lot. I know I am terrible at calling as often as I should and I am sorry for that. Life gets crazy but please know I am trying my best. Even if it does not feel like much you are still the person I call more than anyone else.
 
-This is placeholder text — replace everything above with your own words. Read it out loud once; if it sounds like you, it's perfect.
+I am always cheering for you mostly so you do not fall over and I cannot wait until we are back to our usual routine of me roasting you in person. Have the best day because you deserve it.
 
 Forever cheering for you. ❤️`;
 
