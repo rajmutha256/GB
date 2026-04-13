@@ -2,6 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- GitHub Pages: without a trailing slash on /Repo, relative "images/..." wrongly becomes /images/... — fix base for project sites -->
+    <script>
+      (function () {
+        if (!location.hostname.endsWith("github.io")) return;
+        var parts = location.pathname.split("/").filter(Boolean);
+        if (!parts.length) return;
+        var b = document.createElement("base");
+        b.href = "/" + parts[0] + "/";
+        var meta = document.querySelector("meta[charset]");
+        if (meta) meta.after(b);
+        else document.head.prepend(b);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A little birthday surprise" />
     <title>Happy Birthday</title>
@@ -170,27 +183,28 @@
           <article class="memory-card reveal">
             <h3 class="memory-card__title">That one joke</h3>
             <p class="memory-card__text">
-              Replace this with a funny moment only the two of you would get. (Edit the text right
-              here in HTML.)
+              The Great Goa Slip-n-Slide. I still have the mental image of you drowning in shampoo on
+              the bathroom floor.
             </p>
           </article>
           <article class="memory-card reveal">
-            <h3 class="memory-card__title">Quiet Tuesday</h3>
+            <h3 class="memory-card__title">The Best Trio</h3>
             <p class="memory-card__text">
-              A cozy memory — coffee, rain on the window, or a walk that felt longer than it was.
+              No matter what we do, the three of us are always gonna be together.
             </p>
           </article>
           <article class="memory-card reveal">
             <h3 class="memory-card__title">You cheered me up</h3>
             <p class="memory-card__text">
-              The time you showed up exactly when I needed you. I still think about it.
+              The way you always cheer me up. I will always be grateful for this! :D
             </p>
           </article>
           <article class="memory-card reveal">
             <h3 class="memory-card__title">Our little ritual</h3>
             <p class="memory-card__text">
-              That small thing we always do — silly or sweet — that makes ordinary days feel like
-              ours.
+              The Daily Roast. My favorite hobby is finding something you're wearing or saying and
+              making sure you never hear the end of it. If I'm not making fun of you, that's when you
+              should actually be worried.
             </p>
           </article>
         </div>
