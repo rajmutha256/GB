@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A little birthday surprise" />
+    <title>Happy Birthday</title>
+    <!--
+      EDIT HERE — quick reference:
+      - Her name: search "Her Name" in this file (hero h1)
+      - Gallery images: src="images/your-file.jpg" under #gallery
+      - Memory cards: duplicate .memory-card blocks in #memories
+      - Letter text: edit LETTER_TEXT in script.js (typewriter source)
+      - Music: add MP3 as audio/birthday.mp3 (or change src on #bg-music)
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <button
+      type="button"
+      class="music-fab"
+      id="musicToggle"
+      aria-pressed="false"
+      aria-label="Play background music"
+    >
+      <span class="music-fab__icon" aria-hidden="true">♪</span>
+      <span class="music-fab__label">Music</span>
+    </button>
+
+    <audio id="bg-music" loop preload="metadata">
+      <!-- Add your file as audio/birthday.mp3 or update the src below -->
+      <source src="audio/birthday.mp3" type="audio/mpeg" />
+    </audio>
+
+    <main id="main">
+      <section id="landing" class="section section--landing" aria-label="Welcome">
+        <div class="hero hero--fade">
+          <p class="hero__eyebrow">Your special day</p>
+          <h1 class="hero__title">Happy Birthday <span class="hero__name">Her Name</span> ❤️</h1>
+          <p class="hero__sub">A little something for you :)</p>
+        </div>
+      </section>
+
+      <section id="gallery" class="section section--gallery" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading" class="section__title reveal">Moments</h2>
+        <p class="section__lead reveal">Tap a photo to see it larger.</p>
+        <div class="gallery" role="list">
+          <figure class="gallery__item reveal" role="listitem">
+            <button
+              type="button"
+              class="gallery__btn"
+              data-modal-open
+              data-src="images/placeholder-1.svg"
+              data-alt="Memory one"
+            >
+              <img
+                src="images/placeholder-1.svg"
+                alt="Memory one — replace with your photo"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </button>
+            <figcaption class="gallery__cap">Soft light</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" role="listitem">
+            <button
+              type="button"
+              class="gallery__btn"
+              data-modal-open
+              data-src="images/placeholder-2.svg"
+              data-alt="Memory two"
+            >
+              <img
+                src="images/placeholder-2.svg"
+                alt="Memory two — replace with your photo"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </button>
+            <figcaption class="gallery__cap">Lavender haze</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" role="listitem">
+            <button
+              type="button"
+              class="gallery__btn"
+              data-modal-open
+              data-src="images/placeholder-3.svg"
+              data-alt="Memory three"
+            >
+              <img
+                src="images/placeholder-3.svg"
+                alt="Memory three — replace with your photo"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </button>
+            <figcaption class="gallery__cap">Pink skies</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" role="listitem">
+            <button
+              type="button"
+              class="gallery__btn"
+              data-modal-open
+              data-src="images/placeholder-4.svg"
+              data-alt="Memory four"
+            >
+              <img
+                src="images/placeholder-4.svg"
+                alt="Memory four — replace with your photo"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </button>
+            <figcaption class="gallery__cap">Warm beige</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="memories" class="section section--memories" aria-labelledby="memories-heading">
+        <h2 id="memories-heading" class="section__title reveal">Little memories</h2>
+        <p class="section__lead reveal">Funny bits and soft ones, all yours.</p>
+        <div class="memories">
+          <article class="memory-card reveal">
+            <h3 class="memory-card__title">That one joke</h3>
+            <p class="memory-card__text">
+              Replace this with a funny moment only the two of you would get. (Edit the text right
+              here in HTML.)
+            </p>
+          </article>
+          <article class="memory-card reveal">
+            <h3 class="memory-card__title">Quiet Tuesday</h3>
+            <p class="memory-card__text">
+              A cozy memory — coffee, rain on the window, or a walk that felt longer than it was.
+            </p>
+          </article>
+          <article class="memory-card reveal">
+            <h3 class="memory-card__title">You cheered me up</h3>
+            <p class="memory-card__text">
+              The time you showed up exactly when I needed you. I still think about it.
+            </p>
+          </article>
+          <article class="memory-card reveal">
+            <h3 class="memory-card__title">Our little ritual</h3>
+            <p class="memory-card__text">
+              That small thing we always do — silly or sweet — that makes ordinary days feel like
+              ours.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="letter" class="section section--letter" aria-labelledby="letter-heading">
+        <h2 id="letter-heading" class="section__title reveal">A letter for you</h2>
+        <div class="letter reveal" id="letterBox">
+          <p id="letterText" class="letter__body" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="finale" class="section section--finale" aria-label="Closing">
+        <div class="finale">
+          <p class="finale__line reveal">I’m really lucky to have you ❤️</p>
+          <div class="hearts" id="heartsContainer" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="modal"
+      id="imageModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged photo"
+      hidden
+    >
+      <div class="modal__backdrop" data-modal-close tabindex="-1"></div>
+      <div class="modal__dialog">
+        <button type="button" class="modal__close" data-modal-close aria-label="Close">
+          ×
+        </button>
+        <img class="modal__img" src="" alt="" id="modalImage" />
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
