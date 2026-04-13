@@ -3,12 +3,11 @@ Audio folder
 
 Background music for the floating “Music” button:
 
-  1. Add an MP3 file here.
-  2. In index.html, find <audio id="bg-music"> and set <source src="...">
-     to your file. Use URL encoding for spaces in the filename (e.g. %20).
+  1. Add your MP3 as: audio/bg-music.mp3  (simple name = fewer URL bugs)
+  2. In index.html, <audio id="bg-music"> should point at audio/bg-music.mp3
 
-Current project uses a long filename; you can rename to e.g. see-you-again.mp3
-for simpler paths.
+To use a different name, change the <source src="..."> and keep the filename
+short (no spaces) if possible.
 
 Browsers usually block autoplay with sound; the play button is required so
 listeners can start music after one tap.

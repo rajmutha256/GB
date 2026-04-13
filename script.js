@@ -255,6 +255,20 @@ function syncGateFromSession() {
     const btn = document.getElementById("musicToggle");
     if (!audio || !btn) return;
 
+    /* Resolve relative audio URL against document base (fixes GitHub Pages /Repo vs /Repo/) */
+    const sourceEl = audio.querySelector("source");
+    if (sourceEl) {
+      const rel = sourceEl.getAttribute("src");
+      if (rel) {
+        try {
+          sourceEl.src = new URL(rel, document.baseURI).href;
+        } catch (ignore) {
+          /* keep original */
+        }
+      }
+      audio.load();
+    }
+
     function setPlaying(playing) {
       btn.classList.toggle("music-fab--playing", playing);
       btn.setAttribute("aria-pressed", playing ? "true" : "false");
