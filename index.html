@@ -24,7 +24,7 @@
       - Gallery images: src="images/your-file.jpg" under #gallery
       - Memory cards: duplicate .memory-card blocks in #memories
       - Letter text: edit LETTER_TEXT in script.js (typewriter source)
-      - Music: add MP3 as audio/birthday.mp3 (or change src on #bg-music)
+      - Music: put MP3 in audio/ and update the source under #bg-music in this file
       - Gate password: GATE_PASSWORD in script.js (session remembers until tab closes; must match to auto-enter)
       - Surprise message: edit #surprisePanel in this file
     -->
@@ -84,8 +84,11 @@
     </button>
 
     <audio id="bg-music" loop preload="metadata">
-      <!-- Add your file as audio/birthday.mp3 or update the src below -->
-      <source src="audio/birthday.mp3" type="audio/mpeg" />
+      <!-- MP3 in audio/ — if you rename the file, update this src to match -->
+      <source
+        src="audio/APLMate.com%20-%20See%20You%20Again%20_feat.%20Charlie%20Puth_%20-%20Wiz%20Khalifa.mp3"
+        type="audio/mpeg"
+      />
     </audio>
 
     <main id="main" class="page-main">

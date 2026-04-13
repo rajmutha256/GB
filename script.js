@@ -281,7 +281,7 @@ function syncGateFromSession() {
 
     audio.addEventListener("error", () => {
       btn.disabled = true;
-      btn.title = "Add audio/birthday.mp3 to enable music";
+      btn.title = "Add an MP3 in audio/ and set the source in index.html";
       setPlaying(false);
     });
   }
