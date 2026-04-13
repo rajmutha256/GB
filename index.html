@@ -12,17 +12,52 @@
       - Memory cards: duplicate .memory-card blocks in #memories
       - Letter text: edit LETTER_TEXT in script.js (typewriter source)
       - Music: add MP3 as audio/birthday.mp3 (or change src on #bg-music)
+      - Gate password: GATE_PASSWORD in script.js (session remembers until tab closes; must match to auto-enter)
+      - Surprise message: edit #surprisePanel in this file
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Password gate: unlocks the rest of the site (see GATE_PASSWORD in script.js) -->
+    <div
+      id="gate"
+      class="gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gateTitle"
+      aria-describedby="gateHint"
+    >
+      <div class="gate__bg" aria-hidden="true"></div>
+      <div class="gate__float" id="gateFloat" aria-hidden="true"></div>
+      <form class="gate__panel glass-panel" id="gateForm" novalidate>
+        <p id="gateHint" class="gate__hint">Only for you.</p>
+        <h1 id="gateTitle" class="gate__title">Enter the secret password 💌</h1>
+        <label class="gate__label" for="gateInput">Password</label>
+        <input
+          type="password"
+          id="gateInput"
+          class="gate__input"
+          name="gate-password"
+          autocomplete="current-password"
+          required
+        />
+        <button type="submit" class="gate__btn btn-shine">Come in</button>
+        <p class="gate__error" id="gateError" role="alert" hidden></p>
+      </form>
+    </div>
+
     <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Site-wide floating hearts + petals (pointer-events: none) -->
+    <div id="ambientParticles" class="ambient-particles" aria-hidden="true"></div>
+    <!-- Occasional sparkles (CSS + light JS) -->
+    <div id="sparkleLayer" class="sparkle-layer" aria-hidden="true"></div>
 
     <button
       type="button"
@@ -40,8 +75,8 @@
       <source src="audio/birthday.mp3" type="audio/mpeg" />
     </audio>
 
-    <main id="main">
-      <section id="landing" class="section section--landing" aria-label="Welcome">
+    <main id="main" class="page-main">
+      <section id="landing" class="section section--landing section--parallax" data-parallax="0.06" aria-label="Welcome">
         <div class="hero hero--fade">
           <p class="hero__eyebrow">Your special day</p>
           <h1 class="hero__title">Happy Birthday <span class="hero__name">Her Name</span> ❤️</h1>
@@ -49,7 +84,7 @@
         </div>
       </section>
 
-      <section id="gallery" class="section section--gallery" aria-labelledby="gallery-heading">
+      <section id="gallery" class="section section--gallery section--parallax" data-parallax="0.04" aria-labelledby="gallery-heading">
         <h2 id="gallery-heading" class="section__title reveal">Moments</h2>
         <p class="section__lead reveal">Tap a photo to see it larger.</p>
         <div class="gallery" role="list">
@@ -128,7 +163,7 @@
         </div>
       </section>
 
-      <section id="memories" class="section section--memories" aria-labelledby="memories-heading">
+      <section id="memories" class="section section--memories section--parallax" data-parallax="0.05" aria-labelledby="memories-heading">
         <h2 id="memories-heading" class="section__title reveal">Little memories</h2>
         <p class="section__lead reveal">Funny bits and soft ones, all yours.</p>
         <div class="memories">
@@ -161,14 +196,30 @@
         </div>
       </section>
 
-      <section id="letter" class="section section--letter" aria-labelledby="letter-heading">
+      <section id="letter" class="section section--letter section--parallax" data-parallax="0.035" aria-labelledby="letter-heading">
         <h2 id="letter-heading" class="section__title reveal">A letter for you</h2>
         <div class="letter reveal" id="letterBox">
           <p id="letterText" class="letter__body" aria-live="polite"></p>
         </div>
+        <div class="surprise-wrap reveal">
+          <button
+            type="button"
+            class="surprise-btn btn-shine"
+            id="surpriseBtn"
+            aria-expanded="false"
+            aria-controls="surprisePanel"
+          >
+            Open a tiny surprise ✨
+          </button>
+          <div class="surprise-panel glass-panel" id="surprisePanel" hidden>
+            <p class="surprise-panel__text">
+              Edit this hidden note in <strong>index.html</strong> — tell her something only she would smile at.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section id="finale" class="section section--finale" aria-label="Closing">
+      <section id="finale" class="section section--finale section--parallax" data-parallax="0.03" aria-label="Closing">
         <div class="finale">
           <p class="finale__line reveal">I’m really lucky to have you ❤️</p>
           <div class="hearts" id="heartsContainer" aria-hidden="true"></div>
